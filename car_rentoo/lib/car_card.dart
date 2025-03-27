@@ -26,7 +26,7 @@ class CarCard extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image(image: NetworkImage('https://d2m3nfprmhqjvd.cloudfront.net/blog/20220609124009/Spinny-Assured-Maruti-Wagon-R-1.0.jpg')),
+            Image(image: NetworkImage('https://mda.spinny.com/sp-file-system/public/2025-01-20/0c1dcf56848e48a180e793b0828efb19/raw/file.JPG')),
             Text(car.model,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
             SizedBox(height: 10,),
             Row(

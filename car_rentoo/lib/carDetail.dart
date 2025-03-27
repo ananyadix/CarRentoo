@@ -1,12 +1,35 @@
 import 'package:car_rentoo/car_card.dart';
 import 'package:car_rentoo/data/model/Car.dart';
+import 'package:car_rentoo/map.dart';
 import 'package:car_rentoo/moreCard.dart';
 import 'package:flutter/material.dart';
 
-class Cardetail extends StatelessWidget {
+class Cardetail extends StatefulWidget {
   const Cardetail({super.key});
 
   @override
+  State<Cardetail> createState() => _CardetailState();
+}
+
+class _CardetailState extends State<Cardetail> with SingleTickerProviderStateMixin {
+  AnimationController? _controller;
+  Animation<double>? _animation;
+  @override
+  void initState() {
+    // TODO: implement initState
+    _controller=AnimationController(vsync: this,
+    duration: const Duration(seconds: 3));
+    _animation=Tween<double>(begin: 1.0,end: 1.5).animate(_controller!)..addListener((){setState(() {
+
+    });});
+    _controller!.forward();
+    super.initState();
+  }
+  @override
+  void dispose(){
+    _controller!.forward();
+    super.dispose();
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -53,12 +76,13 @@ class Cardetail extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 20,),
-                Expanded(
+                GestureDetector(
+                  onTap:(){Navigator.push(context, MaterialPageRoute(builder: (context)=>MapDetail()));},
                   child: Container(
                     height: 170,
+                    width: 170,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(image: NetworkImage("https://img.freepik.com/premium-vector/navigation-gps-map_163786-35.jpg"),fit: BoxFit.cover),
                         boxShadow: [
                           BoxShadow(
                               color: Colors.black12,
@@ -66,6 +90,14 @@ class Cardetail extends StatelessWidget {
                               spreadRadius: 5
                           )
                         ]
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Transform.scale(
+                        scale: _animation!.value,
+                        alignment: Alignment.center,
+                        child: Image.network("https://img.freepik.com/premium-vector/navigation-gps-map_163786-35.jpg",fit: BoxFit.cover,),
+                      ),
                     ),
                   ),
                 )

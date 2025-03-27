@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "468628667304",
+    "project_id": "carrentoo-83f6d",
+    "storage_bucket": "carrentoo-83f6d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:468628667304:android:15807aa667defed5337b9d",
+        "android_client_info": {
+          "package_name": "com.example.car_rentoo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvquR_0usgkN2zIlejX530TgJomdi7p-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
